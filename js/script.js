@@ -28,11 +28,11 @@ calculate.addEventListener('click', function() {
 	if (!patt.test(weight.value) || !patt.test(height.value)) {
 		message.style.display = 'block';
 	} else {
-		var pattH = /[0-9]\.[0-9]/;
+		var pattH = /[0-9]\W[0-9]/;
 		if (!pattH.test(height.value)) {
-			height.value = height.value.slice(0,1)+'.'+height.value.slice(1);
+			height.value =height.value.slice(0,1)+'.'+height.value.slice(1);
 		}
-		var imc = weight.value / (height.value * height.value);
+		var imc =  weight.value / (height.value * height.value);
 		if (imc < 18.5) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/baixopeso.svg';
@@ -53,13 +53,10 @@ calculate.addEventListener('click', function() {
 			result.style.display = 'flex';
 			resultImg.src = 'img/graudois.svg';
 			resultTitle.innerHTML = 'Seu IMC é '+imc.toPrecision(3)+'. Está com obesidade grau II.';
-		} else if (imc > 40) {
+		} else {
 			result.style.display = 'flex';
 			resultImg.src = 'img/grautres.svg';
 			resultTitle.innerHTML = 'Seu IMC é '+imc.toPrecision(3)+'. Está com obesidade grau III.';
-		} else {
-			result.style.display = 'flex';
-			resultTitle.innerHTML = 'Seu IMC é '+imc.toPrecision(3)+'. Está fora da normatiza do Ministério da Saúde';
 		};
 	};
 });
