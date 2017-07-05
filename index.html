@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	
+	<title>IMC - Índice de Massa Corporal</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<section class="flex content">
+		<div class="column">
+			<header class="header">
+				<img src="img/imc-logo.svg" alt="IMC logo">
+				<h1>Calcule seu Índice de Massa Corporal</h1>
+			</header>
+			<div class="field-group flex">
+			<div class="field-icon">
+			  <input class="field" type="text" id="weight" name="weight" placeholder="Peso" autofocus>
+			   <span>kg</span>
+			</div>
+			<div class="field-icon">
+			  <input class="field" type="text" id="height" name="height" placeholder="Altura">
+			  <span>mt</span>
+			</div>
+			</div>
+		  <button id="calculate" class="button">Calcular</button>
+		  <span id="message" class="text-alert">Preencha todos os campos. Utilize apenas números.</span>
+		</div>
+	</section>
+	<div id="result" class="result flex">
+		<img src="img/baixopeso.svg">
+		<h2></h2>
+		<button id="newCalculate" class="button">Voltar</button>
+	</div>
+	<div id="intro" class="intro flex">
+		<img src="img/imc-logo.svg" alt="IMC logo">
+	</div>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
+

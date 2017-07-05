@@ -1,0 +1,44 @@
+html, body, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	font: inherit;
+}
+
+html, body {
+	box-sizing: border-box;
+	height: 100vh;
+	line-height: 1;
+	font-size: 16px;
+}
+
+article, section, header, footer, nav {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+button, input {
+	box-sizing: border-box;
+	border: none;
+	font: inherit;
+	color: inherit;
+	line-height: inherit;
+}
+
+button:focus, input:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 569px) {
+	body, html {
+		font-size: 10px;
+	}
+}
