@@ -29,17 +29,20 @@ calculate.addEventListener('click', function() {
 		message.style.display = 'block';
 	} else {
 		var pattH = /[0-9]\W[0-9]/;
-		if (pattH.test(height.value)) {
+		var weightDot = weight.value.toString().replace(/\W/, '.');
+		if (pattH.test(height.value) || pattH.test(weight.value)) {
 			var heightMt = height.value.toString().replace(/\W/, '');
 			heightMt = heightMt / 100;
 		} else {
 			heightMt = height.value / 100;
 		};
-		var imc =  weight.value / (heightMt * heightMt);
+		var imc =  weightDot / (heightMt * heightMt);
+		var idealWeight;
+		idealWeight = (heightMt * heightMt) * 21;
 		if (imc < 18.5) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/baixopeso.svg';
-			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está abaixo do peso';
+			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está abaixo do peso</br>O peso ideal é de <strong>' + idealWeight.toFixed(1) + 'kg</strong>';
 		} else if (imc > 18.6 && imc < 24.9) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/pesoideal.svg';
@@ -47,19 +50,19 @@ calculate.addEventListener('click', function() {
 		} else if (imc > 25 && imc < 29.9) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/sobrepeso.svg';
-			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com sobrepeso';
+			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com sobrepeso</br>O peso ideal é de <strong>' + idealWeight.toFixed(1) + 'kg</strong>';
 		} else if (imc > 30 && imc < 34.9) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/grauum.svg';
-			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau I';
+			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau I</br>O peso ideal é de <strong>' + idealWeight.toFixed(1) + 'kg</strong>';
 		} else if (imc > 35 && imc < 39.9) {
 			result.style.display = 'flex';
 			resultImg.src = 'img/graudois.svg';
-			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau II';
+			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau II</br>O peso ideal é de <strong>' + idealWeight.toFixed(1) + 'kg</strong>';
 		} else {
 			result.style.display = 'flex';
 			resultImg.src = 'img/grautres.svg';
-			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau III';
+			resultTitle.innerHTML = 'Seu IMC é <strong>' + imc.toPrecision(3) + '</strong><br>Está com obesidade grau III</br>O peso ideal é de <strong>' + idealWeight.toFixed(1) + 'kg</strong>';
 		};
 	};
 });
